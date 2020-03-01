@@ -23,14 +23,6 @@ body,
 body
   overflow-x: hidden;
 
-#__nuxt
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-#__layout
-  max-width: 80em;
-
 *,
 *:before,
 *:after

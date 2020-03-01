@@ -2,8 +2,9 @@
 import { Vue, Component } from 'vue-property-decorator'
 import TheHeader from '@/components/TheHeader.vue'
 import TheContactForm from '@/components/TheContactForm.vue'
+import TheFooter from '@/components/TheFooter.vue'
 
-@Component({ components: { TheHeader, TheContactForm } })
+@Component({ components: { TheHeader, TheContactForm, TheFooter } })
 export default class Index extends Vue {
 
 }
@@ -52,12 +53,24 @@ export default class Index extends Vue {
       TheContactForm
     img.section-image(src="@/static/img7.png")
 
+  TheFooter
+
 </template>
 
 <style lang="stylus" scoped>
+@import '~@/assets/theme'
+
 .index-page
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > *
+    width: 100%;
+    height: 100%;
+
+.header,
+.section
+  max-width: $app-max-width;
 
 .section
   display: flex;
