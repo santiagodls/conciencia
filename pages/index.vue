@@ -19,19 +19,19 @@ export default class Index extends Vue {
     .section-text
       h1.section-title Trabajando por causas que importan
       p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de campañas <b>Face-to-face, asesoramiento y formaciones especificas</b>.
-    img.section-image(src="@/static/img1.png")
+    img.section-image.img1(src="@/static/img1.png")
 
   section.section.reverse
     .section-text
       h1.section-title Comunicamos, concienciamos, hacemos fundraising
       p El Fundraising es <b>ese mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Queremos que Conciencia sea el hilo conductor que lo haga posible.
-    img.section-image(src="@/static/img2.svg")
+    img.section-image.img2(src="@/static/img2.svg")
 
   section.section#nosotros
     .section-text
       h1.section-title Con el mejor de los equipos
       p <b>El valor y el corazón</b> de conciencia. Son ellos y ellas <b>quienes conciencian y conectan</b> día a día a cientos de personas con las distintas realidades y las organizaciones a las que representan.
-    img.section-image(src="@/static/img3.png")
+    img.section-image.img3(src="@/static/img3.png")
 
   section.section.with-columns.auto-height
     .section-column
@@ -52,7 +52,7 @@ export default class Index extends Vue {
       h1.section-title El momento de iniciar nuestra propia aventura ¿Te unes?
       p Tanto si eres una <b>ONG</b> como si quieres <b>trabajar con nosotros</b>, contáctanos, estaremos encantados y encantadas de atenderte. ¡Conciencia con nosotros!
       TheContactForm
-    img.section-image(src="@/static/img7.png")
+    img.section-image.img7(src="@/static/img7.png")
 
   TheFooter
 
@@ -105,17 +105,17 @@ export default class Index extends Vue {
 
   &-image
     z-index: -1;
-    &[src*='img1.png']
+    &.img1
       position: absolute;
       top: -2em; right: -2em;
-    &[src*='img2.svg']
+    &.img2
       width: 38em;
       position: absolute;
       top: -2em; left: -2em;
-    &[src*='img3.png']
+    &.img3
       position: absolute;
       top: -10em; left: -4em;
-    &[src*='img7.png']
+    &.img7
       position: absolute;
       top: 8em; left: 2em;
 
