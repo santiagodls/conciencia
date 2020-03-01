@@ -1,3 +1,10 @@
+/* nuxt.config.js */
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/conciencia/'
+  }
+} : {}
 
 export default {
   mode: 'universal',
@@ -61,5 +68,6 @@ export default {
     */
     // extend (config, ctx) {
     // }
-  }
+  },
+  ...routerBase
 }
