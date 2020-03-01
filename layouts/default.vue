@@ -22,6 +22,8 @@ body,
 
 body
   overflow-x: hidden;
+  &.no-support
+    overflow: hidden;
 
 *,
 *:before,
