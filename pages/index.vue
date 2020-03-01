@@ -1,8 +1,9 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import TheHeader from '@/components/TheHeader.vue'
+import TheContactForm from '@/components/TheContactForm.vue'
 
-@Component({ components: { TheHeader } })
+@Component({ components: { TheHeader, TheContactForm } })
 export default class Index extends Vue {
 
 }
