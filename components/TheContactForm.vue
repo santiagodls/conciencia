@@ -12,7 +12,7 @@ form.contact-form
   input.form-field(placeholder='Nombre')
   input.form-field(placeholder='Teléfono / email de contacto')
   textarea.form-field(placeholder='¿En qué te podemos ayudar?' rows='6')
-
+  input.submit-button(type='submit' value='Contactar')
 </template>
 
 <style lang="stylus" scoped>
@@ -24,6 +24,15 @@ form.contact-form
   border: 6px solid $dark-text-primary;
   border-radius: 2em;
   margin-top: 2em;
-  max-width: 49em;
+
+.submit-button
+  background: $app-yellow;
+  font-family: 'Roboto Condensed';
+  font-size: 1.5em;
+  padding: .5em 2em;
+  border: none;
+  border-radius: 2em;
+  margin-top: 1em;
+  float: right;
 
 </style>
