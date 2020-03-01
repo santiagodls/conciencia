@@ -35,7 +35,7 @@ header.header
   display: flex;
   justify-content space-between;
   align-items: center;
-  padding: 2em 4em;
+  padding: 1em 4em;
 
 .nav-links
   display: flex;
@@ -43,11 +43,12 @@ header.header
 
 .nav-link
   text-decoration: none;
-  color: $dark-text-secondary;
+  color: $dark-text-primary;
   font-size: 1.1em;
+  font-weight: 600;
   margin-left: 2em;
   &:active
-    color: $dark-text-primary;
+    color: $paper-orange-500;
 
 .logo
   width: 14em;
