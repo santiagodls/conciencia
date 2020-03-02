@@ -3,9 +3,8 @@ import { Vue, Component } from 'vue-property-decorator'
 import TheHeader from '@/components/TheHeader.vue'
 import TheContactForm from '@/components/TheContactForm.vue'
 import TheFooter from '@/components/TheFooter.vue'
-import ComingSoon from '@/components/ComingSoon.vue'
 
-@Component({ components: { TheHeader, TheContactForm, TheFooter, ComingSoon } })
+@Component({ components: { TheHeader, TheContactForm, TheFooter } })
 export default class Index extends Vue {
 
 }
@@ -55,8 +54,6 @@ export default class Index extends Vue {
     img.section-image.img7(src="@/static/img7.png")
 
   TheFooter
-
-  ComingSoon
 
 </template>
 
