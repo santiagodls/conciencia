@@ -9,6 +9,8 @@
 :root
   --max-width: 80em;
   --header-height: 6em;
+  +tablet()
+    --header-height: 5em;
   +mobile()
     --header-height: 4.5em;
 

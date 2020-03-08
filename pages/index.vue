@@ -19,7 +19,7 @@ export default class Index extends Vue {
       h1.section-title Trabajando por causas que importan
       p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de campañas <b>Face-to-face, asesoramiento y formaciones especificas</b>.
     picture
-      source(media="(max-width: 720px)" srcset="@/static/img1-mobile.png")
+      source(media="(max-width: 780px)" srcset="@/static/img1-mobile.png")
       img.section-image(src="@/static/img1.png")
 
   section.section.section2.reverse
@@ -33,7 +33,7 @@ export default class Index extends Vue {
       h1.section-title Con el mejor de los equipos
       p <b>El valor y el corazón</b> de conciencia. Son ellos y ellas <b>quienes conciencian y conectan</b> día a día a cientos de personas con las distintas realidades y las organizaciones a las que representan.
     picture
-      source(media="(max-width: 720px)" srcset="@/static/img3-mobile.png")
+      source(media="(max-width: 1280px)" srcset="@/static/img3-mobile.png")
       img.section-image(src="@/static/img3.png")
 
   section.section.section4
@@ -56,7 +56,7 @@ export default class Index extends Vue {
       p Tanto si eres una <b>ONG</b> como si quieres <b>trabajar con nosotros</b>, contáctanos, estaremos encantados y encantadas de atenderte. ¡Conciencia con nosotros!
       TheContactForm
     picture
-      source(media="(max-width: 720px)" srcset="@/static/img7-mobile.png")
+      source(media="(max-width: 780px)" srcset="@/static/img7-mobile.png")
       img.section-image(src="@/static/img7.png")
 
   TheFooter
@@ -72,8 +72,7 @@ export default class Index extends Vue {
   flex-direction: column;
   align-items: center;
   padding-top: var(--header-height);
-  +mobile()
-    overflow: hidden;
+  overflow: hidden;
 
   > *
     width: 100%;
@@ -86,7 +85,6 @@ export default class Index extends Vue {
   position: relative;
   padding: 6em 4em;
   margin-top: 6em;
-
   +mobile()
     width: 100%;
     padding: 1.5em;
@@ -104,6 +102,8 @@ export default class Index extends Vue {
     font-size: 3.8em;
     line-height: 1;
     margin-bottom: .5em;
+    +tablet()
+      font-size: 3em;
     +mobile()
       font-size: 2.2em;
 
@@ -113,26 +113,47 @@ export default class Index extends Vue {
 .section1
   height: 42em;
   margin: 0;
+  +tablet()
+    height: 48em;
   +mobile()
     margin-top: 2em;
     height: 62em;
 
+  .section-text
+    text-shadow: 0px 0px 4px white;
+
   .section-image
     position: absolute;
     top: -2em; right: -2em;
+    +tablet()
+      width: 80vw;
+      min-width: 50em;
+      top: 6em; right: -8em;
     +mobile()
       width: 42em;
+      min-width: unset;
       top: 12em; right: -15em;
+    +mobile-landscape()
+      top: 6em; right: -10em;
 
 .section2
   height: 45em;
+  +tablet()
+    height: 32em;
   +mobile()
     height: 23em;
+  +mobile-landscape()
+    height: 18em;
 
   .section-image
     width: 38em;
     position: absolute;
     top: -2em; left: -2em;
+    +tablet()
+      width: 32em;
+      top: -8em; left: -7em;
+    @media (min-width: 781px) and (max-width: 1050px)
+      display: none;
     +mobile()
       width: 27em;
       top: -16em; right: -8em;
@@ -140,13 +161,20 @@ export default class Index extends Vue {
 
 .section3
   height: 36em;
+  +tablet()
+    height: 40em;
 
   .section-image
     position: absolute;
     top: -10em; left: -4em;
+    +tablet()
+      width: 38em;
+      top: -4em; right: -2em;
+      left: unset;
     +mobile()
       width: 32em;
-      top: -2em;
+      top: -2em; left: -4em;
+      right: unset;
 
 .section4
   justify-content: space-around;
@@ -166,24 +194,33 @@ export default class Index extends Vue {
       max-width: 15em;
       margin: 0 0 4em;
     &-image
-      max-height: 9em;
+      height: 9em;
       margin-bottom: 1em;
       +mobile()
-        max-width: 10em;
-        max-height: 8em;
+        // max-width: 10em;
+        height: 8em;
     &-title
       font-size: 2.5em;
+      +tablet()
+        font-size: 2.2em;
       +mobile()
         font-size: 2em;
 
 .section5
   margin: 0;
+  +tablet()
+    margin-top: 6em;
   +mobile()
     margin-top: 18em;
 
   .section-image
     position: absolute;
     top: 8em; left: 2em;
+    +tablet()
+      max-width: 28em;
+      left: -4em;
+    @media (min-width: 781px) and (max-width: 1050px)
+      display: none;
     +mobile()
       max-width: 28em;
       top: -19em; left: 50%;
