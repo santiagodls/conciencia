@@ -26,20 +26,26 @@ header.header
         v-for="link in links"
         :href="link.href"
       ) {{ link.text }}
+
 </template>
 
 <style lang="stylus" scoped>
 @import '~@/assets/theme';
+@import '~@/assets/mixins';
 
 .header
   display: flex;
   justify-content space-between;
   align-items: center;
   padding: 1em 4em;
+  +mobile()
+    padding: 1em 1.5em;
 
 .nav-links
   display: flex;
   align-items: center;
+  +mobile()
+    display: none;
 
 .nav-link
   text-decoration: none;
@@ -52,4 +58,7 @@ header.header
 
 .logo
   width: 14em;
+  +mobile()
+    width: 10em;
+
 </style>

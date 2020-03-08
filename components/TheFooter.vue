@@ -24,6 +24,7 @@ footer.footer
 
 <style lang="stylus" scoped>
 @import '~@/assets/theme'
+@import '~@/assets/mixins';
 
 $footer-margin = 16em;
 $footer-background = #cfd8dc;
@@ -52,6 +53,10 @@ $footer-background = #cfd8dc;
   align-items: flex-end;
   width: 100%;
   max-width: $app-max-width;
+  +mobile()
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-end;
 
 .logo
   width: 12em;

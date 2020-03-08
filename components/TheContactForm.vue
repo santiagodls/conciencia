@@ -17,6 +17,7 @@ form.contact-form
 
 <style lang="stylus" scoped>
 @import '~@/assets/theme';
+@import '~@/assets/mixins';
 
 .form-field
   width: 100%;
@@ -24,6 +25,8 @@ form.contact-form
   border: 6px solid $dark-text-primary;
   border-radius: 2em;
   margin-top: 2em;
+  +mobile()
+    border-width: 5px;
 
 .submit-button
   background: $app-yellow;

@@ -1,25 +1,5 @@
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import NonSupported from '@/components/NonSupported.vue'
-
-@Component({ components: { NonSupported } })
-export default class DefaultTemplate extends Vue {
-  supportedDevice: boolean = true
-
-  mounted () {
-    this._computeSupport()
-    window.addEventListener('resize', this._computeSupport.bind(this))
-  }
-
-  private _computeSupport () {
-    this.supportedDevice = process.client && window.outerWidth > 1380
-  }
-}
-</script>
-
 <template lang="pug">
-  nuxt(v-if='supportedDevice')
-  NonSupported(v-else)
+  nuxt
 </template>
 
 <style lang="stylus">
