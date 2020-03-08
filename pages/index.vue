@@ -78,7 +78,6 @@ export default class Index extends Vue {
   > *
     width: 100%;
 
-.header,
 .section
   max-width: var(--max-width);
 
@@ -116,7 +115,7 @@ export default class Index extends Vue {
   margin: 0;
   +mobile()
     margin-top: 2em;
-    height: 60em;
+    height: 62em;
 
   .section-image
     position: absolute;
@@ -128,7 +127,7 @@ export default class Index extends Vue {
 .section2
   height: 45em;
   +mobile()
-    height: 25em;
+    height: 23em;
 
   .section-image
     width: 38em;
@@ -136,7 +135,7 @@ export default class Index extends Vue {
     top: -2em; left: -2em;
     +mobile()
       width: 27em;
-      top: -11em; right: -8em;
+      top: -16em; right: -8em;
       left: unset;
 
 .section3
@@ -187,7 +186,7 @@ export default class Index extends Vue {
     top: 8em; left: 2em;
     +mobile()
       max-width: 28em;
-      top: -18em; left: 50%;
+      top: -19em; left: 50%;
       transform: translateX(-50%);
 
 </style>

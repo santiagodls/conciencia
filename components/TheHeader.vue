@@ -29,7 +29,7 @@ export default class TheHeader extends Vue {
 </script>
 
 <template lang="pug">
-header.header(ref="header")
+header.header(ref="header"): .inner-header
   section.left-section
     img.logo(src="~@/static/logo.svg")
   section.right-section
@@ -46,20 +46,29 @@ header.header(ref="header")
 @import '~@/assets/mixins';
 
 .header
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 0; left: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--header-height);
+  background: white;
+
+.inner-header
   display: flex;
   justify-content space-between;
   align-items: center;
-  z-index: 100;
-  height: var(--header-height);
   padding: 1em 4em;
-  background: white;
+  width: 100%; height: 100%;
+  max-width: var(--max-width);
   +mobile()
     padding: .75em 1.5em;
 
   section
     height: 100%;
+    display: flex;
+    align-items: center;
 
 .nav-links
   display: flex;
