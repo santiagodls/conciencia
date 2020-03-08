@@ -17,6 +17,7 @@ export default class TheHeader extends Vue {
     { text: 'Contacto', href: '#contacto' }
   ]
 
+  linksAreActive = false
   private _headroom?: Headroom
 
   mounted () {
@@ -24,6 +25,30 @@ export default class TheHeader extends Vue {
       tolerance: 10
     })
     this._headroom.init()
+  }
+
+  private _hideMenu () {
+    this.linksAreActive = false
+    document.body.classList.remove('no-scroll')
+  }
+
+  private _showMenu () {
+    this.linksAreActive = true
+    document.body.classList.add('no-scroll')
+  }
+
+  private _onMenuButtonClicked () {
+    this._showMenu()
+  }
+
+  private _onCloseButtonClicked () {
+    this._hideMenu()
+  }
+
+  private _onNavLinkClicked () {
+    if (this.linksAreActive) {
+      this._hideMenu()
+    }
   }
 }
 </script>
@@ -33,11 +58,16 @@ header.header(ref="header"): .inner-header
   section.left-section
     img.logo(src="~@/static/logo.svg")
   section.right-section
-    nav.nav-links
+    nav.nav-links(:class="{ active: linksAreActive }")
       a.nav-link(
         v-for="link in links"
         :href="link.href"
+        @click="_onNavLinkClicked"
       ) {{ link.text }}
+      svg.close-button(viewBox="0 0 24 24" @click="_onCloseButtonClicked")
+        path(d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z")
+    svg.menu-button(viewBox="0 0 24 24" @click="_onMenuButtonClicked")
+      path(d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z")
 
 </template>
 
@@ -74,7 +104,17 @@ header.header(ref="header"): .inner-header
   display: flex;
   align-items: center;
   +mobile()
-    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2.5em;
+    animation: menu-animation .5s ease-out forwards;
+    opacity: 0;
+    &:not(.active)
+      display: none;
 
 .nav-link
   text-decoration: none;
@@ -84,6 +124,25 @@ header.header(ref="header"): .inner-header
   margin-left: 2em;
   &:active
     color: $paper-orange-500;
+  +mobile()
+    margin: .5em 0;
+
+.close-button
+  display: none;
+  width: 32px; height: 32px;
+  +mobile()
+    display: block;
+    position: absolute;
+    top: .5em; right: .65em;
+
+.menu-button
+  display: none;
+  width: 32px; height: 32px;
+  fill: $dark-text-secondary;
+  &:hover
+    fill: $dark-text-primary;
+  +mobile()
+    display: block;
 
 .logo
   height: 100%;
@@ -95,5 +154,11 @@ header.header(ref="header"): .inner-header
     transform: translateY(0%);
   &--unpinned
     transform: translateY(-100%);
+
+@keyframes menu-animation
+  from
+    opacity: 0;
+  to
+    opacity: 1;
 
 </style>

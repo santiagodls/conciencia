@@ -132,7 +132,7 @@ export default class Index extends Vue {
     +mobile()
       width: 42em;
       min-width: unset;
-      top: 12em; right: -15em;
+      top: 10em; right: -15em;
     +mobile-landscape()
       top: 6em; right: -10em;
 
@@ -156,7 +156,7 @@ export default class Index extends Vue {
       display: none;
     +mobile()
       width: 27em;
-      top: -16em; right: -8em;
+      top: -17em; right: -8em;
       left: unset;
 
 .section3

@@ -36,6 +36,8 @@ body,
 
 body
   overflow-x: hidden;
+  &.no-scroll
+    overflow-y: hidden;
 
 *,
 *:before,
