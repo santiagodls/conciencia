@@ -110,7 +110,6 @@ header.header(ref="header"): .inner-header
     background: white;
     flex-direction: column;
     justify-content: center;
-    font-size: 2.5em;
     animation: menu-animation .5s ease-out forwards;
     opacity: 0;
     &:not(.active)
@@ -125,6 +124,7 @@ header.header(ref="header"): .inner-header
   &:active
     color: $paper-orange-500;
   +mobile()
+    font-size: 2em;
     margin: .5em 0;
 
 .close-button
@@ -133,7 +133,7 @@ header.header(ref="header"): .inner-header
   +mobile()
     display: block;
     position: absolute;
-    top: .5em; right: .65em;
+    top: 1.25em; right: 1.5em;
 
 .menu-button
   display: none;
