@@ -52,7 +52,7 @@ $footer-background = #cfd8dc;
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
-  max-width: $app-max-width;
+  max-width: var(--max-width);
   +mobile()
     flex-direction: column-reverse;
     justify-content: flex-start;

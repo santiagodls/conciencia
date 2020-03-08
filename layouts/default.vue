@@ -3,6 +3,15 @@
 </template>
 
 <style lang="stylus">
+@import '~@/assets/theme';
+@import './mixins'
+
+:root
+  --max-width: 80em;
+  --header-height: 6em;
+  +mobile()
+    --header-height: 4.5em;
+
 html
   font-family: 'Source Sans Pro';
   font-size: 18px;
@@ -12,6 +21,8 @@ html
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  +mobile()
+    font-size: 16px;
 
 html,
 body,
@@ -19,6 +30,7 @@ body,
 #__layout
   width: 100%;
   height: 100%;
+  scroll-padding-top: var(--header-height);
 
 body
   overflow-x: hidden;
@@ -28,4 +40,5 @@ body
 *:after
   box-sizing: border-box;
   margin: 0;
+
 </style>

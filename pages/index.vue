@@ -71,17 +71,16 @@ export default class Index extends Vue {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  padding-top: var(--header-height);
   +mobile()
     overflow: hidden;
 
   > *
     width: 100%;
-    height: 100%;
 
 .header,
 .section
-  max-width: $app-max-width;
+  max-width: var(--max-width);
 
 .section
   display: flex;
@@ -107,7 +106,7 @@ export default class Index extends Vue {
     line-height: 1;
     margin-bottom: .5em;
     +mobile()
-      font-size: 2.5em;
+      font-size: 2.2em;
 
   &-image
     z-index: -1;
@@ -168,10 +167,15 @@ export default class Index extends Vue {
       max-width: 15em;
       margin: 0 0 4em;
     &-image
-      max-width: 14em;
+      max-height: 9em;
       margin-bottom: 1em;
+      +mobile()
+        max-width: 10em;
+        max-height: 8em;
     &-title
       font-size: 2.5em;
+      +mobile()
+        font-size: 2em;
 
 .section5
   margin: 0;

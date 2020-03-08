@@ -1,5 +1,6 @@
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Ref } from 'vue-property-decorator'
+import Headroom from 'headroom.js'
 
 type NavLinks = {
   text: string
@@ -8,19 +9,30 @@ type NavLinks = {
 
 @Component
 export default class TheHeader extends Vue {
+  @Ref('header') readonly $header!: HTMLElement
+
   links: NavLinks[] = [
     { text: 'Nuestros servicios', href: '#servicios' },
     { text: 'Sobre nosotros', href: '#nosotros' },
     { text: 'Contacto', href: '#contacto' }
   ]
+
+  private _headroom?: Headroom
+
+  mounted () {
+    this._headroom = new Headroom(this.$header, {
+      tolerance: 10
+    })
+    this._headroom.init()
+  }
 }
 </script>
 
 <template lang="pug">
-header.header
-  .left-section
+header.header(ref="header")
+  section.left-section
     img.logo(src="~@/static/logo.svg")
-  .right-section
+  section.right-section
     nav.nav-links
       a.nav-link(
         v-for="link in links"
@@ -34,12 +46,20 @@ header.header
 @import '~@/assets/mixins';
 
 .header
+  position: fixed;
+  top: 0; left: 0;
   display: flex;
   justify-content space-between;
   align-items: center;
+  z-index: 100;
+  height: var(--header-height);
   padding: 1em 4em;
+  background: white;
   +mobile()
-    padding: 1em 1.5em;
+    padding: .75em 1.5em;
+
+  section
+    height: 100%;
 
 .nav-links
   display: flex;
@@ -57,8 +77,14 @@ header.header
     color: $paper-orange-500;
 
 .logo
-  width: 14em;
-  +mobile()
-    width: 10em;
+  height: 100%;
+
+.headroom
+  will-change: transform;
+  transition: transform 400ms ease-out;
+  &--pinned
+    transform: translateY(0%);
+  &--unpinned
+    transform: translateY(-100%);
 
 </style>
