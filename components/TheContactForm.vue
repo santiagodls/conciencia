@@ -8,10 +8,14 @@ export default class TheContactForm extends Vue {
 </script>
 
 <template lang="pug">
-form.contact-form
-  input.form-field(placeholder='Nombre')
-  input.form-field(placeholder='Teléfono / email de contacto')
-  textarea.form-field(placeholder='¿En qué te podemos ayudar?' rows='6')
+form.contact-form(
+  method='POST'
+  action='https://formspree.io/info@concienciafundraising.es'
+)
+  input.hpot(name='_gotcha')
+  input.form-field(placeholder='Nombre' name='name')
+  input.form-field(placeholder='Teléfono / email de contacto' name='contact')
+  textarea.form-field(placeholder='¿En qué te podemos ayudar?' name='message' rows='6')
   input.submit-button(type='submit' value='Contactar')
 </template>
 
@@ -37,5 +41,8 @@ form.contact-form
   border-radius: 2em;
   margin-top: 1em;
   float: right;
+
+.hpot
+  display: none;
 
 </style>
