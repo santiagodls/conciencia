@@ -25,7 +25,8 @@ export default class Index extends Vue {
   section.section.section2.reverse
     .section-text
       h1.section-title Comunicamos, concienciamos, hacemos fundraising
-      p El Fundraising es <b>ese mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Queremos que Conciencia sea el hilo conductor que lo haga posible.
+      p El Fundraising es <b>ese mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Queremos que Conciencia sea el hilo conductor que lo haga posible. Por ello, <b>nos sentimos muy orgullosos de estar trabajando actualmente con estas organizaciones</b>:
+      img.partner-logo(src="@/static/medicosdelmundo.png")
     img.section-image(src="@/static/img2.svg")
 
   section.section.section3#nosotros
@@ -78,13 +79,11 @@ export default class Index extends Vue {
     width: 100%;
 
 .section
-  max-width: var(--max-width);
-
-.section
   display: flex;
   position: relative;
   padding: 6em 4em;
   margin-top: 6em;
+  max-width: var(--max-width);
   +mobile()
     width: 100%;
     padding: 1.5em;
@@ -141,7 +140,7 @@ export default class Index extends Vue {
   +tablet()
     height: 32em;
   +mobile()
-    height: 23em;
+    height: 25em;
   +mobile-landscape()
     height: 18em;
 
@@ -225,5 +224,15 @@ export default class Index extends Vue {
       max-width: 28em;
       top: -19em; left: 50%;
       transform: translateX(-50%);
+
+.partner-logo
+  width: 6em;
+  height: 6em;
+  margin-top: 2em;
+  filter: grayscale(1);
+  opacity: .7;
+  +mobile()
+    width: 5em;
+    height: 5em;
 
 </style>
