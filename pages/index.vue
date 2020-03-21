@@ -4,7 +4,10 @@ import TheHeader from '@/components/TheHeader.vue'
 import TheContactForm from '@/components/TheContactForm.vue'
 import TheFooter from '@/components/TheFooter.vue'
 
-@Component({ components: { TheHeader, TheContactForm, TheFooter } })
+@Component({
+  components: { TheHeader, TheContactForm, TheFooter },
+  layout: 'landing'
+})
 export default class Index extends Vue {
 
 }
