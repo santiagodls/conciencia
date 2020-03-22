@@ -87,7 +87,6 @@ header.header(ref="header"): .inner-header
   z-index: 100;
   width: 100%;
   height: var(--header-height);
-  background: white;
 
 .inner-header
   display: flex;
@@ -153,7 +152,10 @@ header.header(ref="header"): .inner-header
 
 .headroom
   will-change: transform;
-  transition: transform 400ms ease-out;
+  background: transparent;
+  transition: transform 400ms ease-out, background 200ms linear;
+  &--not-top
+    background: white;
   &--pinned
     transform: translateY(0%);
   &--unpinned
