@@ -1,22 +1,14 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import TheHeader from '@/components/TheHeader.vue'
 import TheContactForm from '@/components/TheContactForm.vue'
-import TheFooter from '@/components/TheFooter.vue'
 
-@Component({
-  components: { TheHeader, TheContactForm, TheFooter },
-  layout: 'landing'
-})
-export default class Index extends Vue {
+@Component({ components: { TheContactForm } })
+export default class Index extends Vue {}
 
-}
 </script>
 
 <template lang="pug">
-.index-page
-  TheHeader
-
+main
   section.section.section1#servicios
     .section-text
       h1.section-title Trabajando por causas que importan
@@ -63,32 +55,17 @@ export default class Index extends Vue {
       source(media="(max-width: 780px)" srcset="@/static/img7-mobile.png")
       img.section-image(src="@/static/img7.png")
 
-  TheFooter
-
 </template>
 
 <style lang="stylus" scoped>
 @import '~@/assets/theme'
 @import '~@/assets/mixins';
 
-.index-page
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: var(--header-height);
-  overflow: hidden;
-
-  > *
-    width: 100%;
-
 .section
   display: flex;
   position: relative;
-  padding: 6em 4em;
   margin-top: 6em;
-  max-width: var(--max-width);
   +mobile()
-    width: 100%;
     padding: 1.5em;
 
   &.reverse

@@ -31,6 +31,7 @@ $footer-background = #cfd8dc;
 
 .footer
   position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

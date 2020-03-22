@@ -20,6 +20,10 @@ export default class TheHeader extends Vue {
   linksAreActive = false
   private _headroom?: Headroom
 
+  get isLandingPage (): boolean {
+    return this.$route.path === '/'
+  }
+
   mounted () {
     this._headroom = new Headroom(this.$header, {
       tolerance: 10
@@ -57,7 +61,7 @@ export default class TheHeader extends Vue {
 header.header(ref="header"): .inner-header
   section.left-section
     img.logo(src="~@/static/logo.svg")
-  section.right-section
+  section.right-section(v-if='isLandingPage')
     nav.nav-links(:class="{ active: linksAreActive }")
       a.nav-link(
         v-for="link in links"
