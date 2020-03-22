@@ -1,17 +1,8 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: '@typescript-eslint/parser'
-  },
   extends: [
-    'standard',
-    '@nuxtjs/eslint-config-typescript'
+    '@nuxtjs/eslint-config-typescript',
+    'eslint-config-standard'
   ],
-  // add your custom rules here
   rules: {
   }
 }
