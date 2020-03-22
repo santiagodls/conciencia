@@ -27,7 +27,6 @@ footer.footer
 @import '~@/assets/mixins';
 
 $footer-margin = 16em;
-$footer-background = #cfd8dc;
 
 .footer
   position: relative;
@@ -36,14 +35,14 @@ $footer-background = #cfd8dc;
   flex-direction: column;
   align-items: center;
   margin-top: $footer-margin;
-  background: $footer-background;
+  background: $app-grey;
 
   &::before
     content: '';
     width: 0; height: 0;
     border-style: solid;
     border-width: 'calc(%s / 2) 0 0 100vw' % $footer-margin;
-    border-color: transparent transparent transparent $footer-background;
+    border-color: transparent transparent transparent $app-grey;
     position: absolute;
     bottom: 100%; left: 0;
 
