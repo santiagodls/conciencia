@@ -42,19 +42,17 @@ export default class AppIcon extends Vue {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-
+  cursor: pointer;
+  color: $paper-grey-600;
+  &:hover
+    color: $paper-grey-800;
   &[reverse]
     flex-direction: row-reverse;
 
 svg
   fill: currentColor;
 
-.icon,
 .text
-  color: $paper-grey-600;
-
-  &:hover
-    cursor: pointer;
-    color: $paper-grey-800;
+  color: inherit
 
 </style>
