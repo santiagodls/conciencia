@@ -2,10 +2,8 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { parseISO, format } from 'date-fns'
 import { es } from 'date-fns/locale'
-import Api, { ApiResponse } from '@/helpers/api'
+import Api, { ApiSearch, Entry } from '@/helpers/api'
 import AppIcon from '@/components/AppIcon.vue'
-
-type Entry = ApiResponse['results'][number]
 
 interface ListPagination {
   previousPage: boolean
@@ -15,7 +13,7 @@ interface ListPagination {
 
 @Component({ components: { AppIcon } })
 export default class Blog extends Vue {
-  data: ApiResponse | null = null
+  data: ApiSearch | null = null
 
   get pagination (): ListPagination {
     /* eslint-disable camelcase */
@@ -128,8 +126,10 @@ main
     z-index: -3;
 
   .title
+    font-family: 'Roboto Condensed';
     font-size: 5em;
     &::before
+      font-family: 'Source Sans Pro';
       content: 'blog';
       line-height: .4;
       letter-spacing: -.05em;
@@ -165,9 +165,16 @@ main
   &-entry-day
     font-size: 8em;
     line-height: .75;
+    margin-top: .05em;
 
   &-entry-month
     font-size: 2.5em;
+    line-height: .75em;
+
+  &-entry-day,
+  &-entry-month,
+  &-entry-title
+    font-family: 'Roboto Condensed';
 
   &-entry-title
     text-decoration: none;
