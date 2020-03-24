@@ -3,6 +3,7 @@ import { Vue, Component } from 'vue-property-decorator'
 import { parseISO, format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import Api, { ApiResponse } from '@/helpers/api'
+import AppIcon from '@/components/AppIcon.vue'
 
 type Entry = ApiResponse['results'][number]
 
@@ -12,7 +13,7 @@ interface ListPagination {
   nextPage: boolean
 }
 
-@Component
+@Component({ components: { AppIcon } })
 export default class Blog extends Vue {
   data: ApiResponse | null = null
 
@@ -27,7 +28,7 @@ export default class Blog extends Vue {
   }
 
   created () {
-    this.fetchEntries()
+    this.fetchEntries(Number(this.$route.query.p))
   }
 
   async fetchEntries (page = 1) {
@@ -51,11 +52,17 @@ export default class Blog extends Vue {
   }
 
   private _onPreviousButtonClicked () {
-    this.fetchEntries(this.pagination.currentPage - 1)
+    const previousPage = this.pagination.currentPage - 1
+    this.$router.push({ query: { p: previousPage.toString() } })
+    this.fetchEntries(previousPage)
+    window.scrollTo(0, 0)
   }
 
   private _onNextButtonClicked () {
-    this.fetchEntries(this.pagination.currentPage + 1)
+    const nextPage = this.pagination.currentPage + 1
+    this.$router.push({ query: { p: nextPage.toString() } })
+    this.fetchEntries(nextPage)
+    window.scrollTo(0, 0)
   }
 }
 </script>
@@ -65,6 +72,7 @@ main
   section.hero-section
     h1.title Nuestro Blog
     h2.subtitle Un pequeño espacio para las ideas que hay que compartir, para las historias que creemos que hay que contar
+
   section.list-section
     nav.list-entries(v-if='data')
       .list-entry(
@@ -79,17 +87,18 @@ main
             | {{ entry.data.title[0].text }}
           p.list-entry-content
             | {{ _getEntryText(entry) }}
-    footer.list-footer
-      .left-section
-        button.footer-button(
-          v-if='pagination.previousPage'
-          @click='_onPreviousButtonClicked'
-        ) Previous
-      .right-section
-        button.footer-button(
-          v-if='pagination.nextPage'
-          @click='_onNextButtonClicked'
-        ) Next
+    footer.list-footer(v-if='pagination.previousPage || pagination.nextPage')
+      AppIcon.list-footer-button(
+        v-if='pagination.previousPage'
+        icon='arrowLeft'
+        @click.native='_onPreviousButtonClicked'
+      ) Anterior
+      AppIcon.list-footer-button(
+        v-if='pagination.nextPage'
+        icon='arrowRight'
+        @click.native='_onNextButtonClicked'
+        reverse
+      ) Siguiente
 
 </template>
 
@@ -165,6 +174,8 @@ main
     color: $dark-text-primary;
     font-size: 2em;
     margin-top: 1em;
+    &:hover
+      color: black;
 
   &-entry-content
     overflow: hidden;
@@ -172,5 +183,14 @@ main
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
     max-height: 6.5em;
+
+  &-footer
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6em;
+
+  &-footer-button
+    font-size: 2em;
 
 </style>
