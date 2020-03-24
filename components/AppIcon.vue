@@ -28,23 +28,29 @@ export default class AppIcon extends Vue {
     viewBox='0 0 24 24'
   )
     path(:d='iconPath')
+  span.text: slot
 </template>
 
 <style lang="stylus" scoped>
 @import '~@/assets/theme'
 
 .icon
-  width: var(--icon-size);
-  height: var(--icon-size);
   display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
+
+  &[reverse]
+    flex-direction: row-reverse;
+
+svg
+  fill: currentColor;
+
+.icon,
+.text
   color: $paper-grey-600;
 
   &:hover
     cursor: pointer;
     color: $paper-grey-800;
-
-svg
-  fill: currentColor;
 
 </style>
