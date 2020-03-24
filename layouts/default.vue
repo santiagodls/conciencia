@@ -12,7 +12,7 @@ import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue'
 
 @Component({ components: { TheHeader, TheFooter } })
-export default class BlogLayout extends Vue {}
+export default class Layout extends Vue {}
 
 </script>
 
