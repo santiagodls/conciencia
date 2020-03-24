@@ -56,7 +56,6 @@ body
     overflow-y: hidden;
 
 .main
-  &-wrapper,
   &-content
     display: flex;
     flex-direction: column;
@@ -64,8 +63,9 @@ body
 
   &-content
     width: 100%;
+    min-height: 100%;
     padding-top: var(--header-height);
-    flex: 1;
+    overflow-x: hidden;
     > *
       padding: 6em 4em;
       width: 100%;
