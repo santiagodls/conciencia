@@ -1,13 +1,14 @@
 <script lang="ts">
 import { Vue, Component, Ref } from 'vue-property-decorator'
 import Headroom from 'headroom.js'
+import AppIcon from '@/components/AppIcon.vue'
 
 type NavLinks = {
   text: string
   href: string
 }
 
-@Component
+@Component({ components: { AppIcon } })
 export default class TheHeader extends Vue {
   @Ref('header') readonly $header!: HTMLElement
 
@@ -21,7 +22,11 @@ export default class TheHeader extends Vue {
   private _headroom?: Headroom
 
   get isLandingPage (): boolean {
-    return this.$route.path === '/'
+    return this.$route.name === 'index'
+  }
+
+  get isBlogEntry (): boolean {
+    return this.$route.name === 'blog/entry'
   }
 
   mounted () {
@@ -72,6 +77,10 @@ header.header(ref="header"): .inner-header
         path(d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z")
     svg.menu-button(viewBox="0 0 24 24" @click="_onMenuButtonClicked")
       path(d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z")
+  section.right-section(v-else-if='isBlogEntry')
+    nav.nav-links
+      nuxt-link.nav-link(to='/blog')
+        AppIcon(icon='arrowLeft') Blog
 
 </template>
 
@@ -120,15 +129,17 @@ header.header(ref="header"): .inner-header
 
 .nav-link
   text-decoration: none;
-  color: $dark-text-primary;
   font-size: 1.1em;
   font-weight: 600;
   margin-left: 2em;
+  color: $dark-text-primary;
   &:active
     color: $paper-orange-500;
   +mobile()
     font-size: 2em;
     margin: .5em 0;
+  .icon
+    color: inherit;
 
 .close-button
   display: none;
