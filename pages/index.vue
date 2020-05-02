@@ -62,32 +62,7 @@ main
 @import '~@/assets/mixins';
 
 .section
-  display: flex;
-  position: relative;
-  margin-top: 6em;
-  +mobile()
-    padding: 1.5em;
-
-  &.reverse
-    flex-direction: row-reverse;
-
-  &-text
-    max-width: 35em;
-    &.xl
-      max-width: 40em;
-
-  &-title
-    font-family: 'Roboto Condensed';
-    font-size: 3.8em;
-    line-height: 1;
-    margin-bottom: .5em;
-    +tablet()
-      font-size: 3em;
-    +mobile()
-      font-size: 2.2em;
-
-  &-image
-    z-index: -1;
+  page-section();
 
 .section1
   height: 42em;
