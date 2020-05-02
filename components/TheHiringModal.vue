@@ -68,7 +68,7 @@ Portal(to='modals-container')
       footer.footer
         AppButton.confirm-button(
           @click.native='_onConfirmButtonClicked'
-        ) Estoy interesado!
+        ) Estoy interesad@!
 
     .backdrop(
       @click='_onBackdropClicked'

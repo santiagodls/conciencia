@@ -74,8 +74,8 @@ main
   background: $app-yellow;
   padding-top: calc(var(--header-height) + 4em);
   +mobile()
-    font-size: .6em;
-    padding-top: calc(var(--header-height) + 8em);
+    font-size: .55em;
+    padding-top: calc(var(--header-height) + 10em);
 
   .text-wrapper
     max-width: var(--max-width);
@@ -105,13 +105,16 @@ main
   max-width: 40em;
   margin-top: 4em;
 
+  +mobile()
+    padding: 2em;
+
   img
     flex-shrink: 0;
     margin: -12em 0 4em 0;
     width: 20em;
     z-index: 0;
     +mobile()
-      margin-top: -6em;
+      margin-top: -2em;
 
   p
     margin-bottom: .5em;
