@@ -3,26 +3,41 @@ import { Vue, Component, Ref } from 'vue-property-decorator'
 import Headroom from 'headroom.js'
 import AppIcon from '@/components/AppIcon.vue'
 
-type NavLinks = {
+type NavLink = {
   text: string
   href: string
+}
+
+type NavLinksMap = {
+  [key: string]: NavLink[]
 }
 
 @Component({ components: { AppIcon } })
 export default class TheHeader extends Vue {
   @Ref('header') readonly $header!: HTMLElement
+  @Ref('logo') readonly $logo!: HTMLImageElement
 
-  links: NavLinks[] = [
-    { text: 'Nuestros servicios', href: '#servicios' },
-    { text: 'Sobre nosotros', href: '#nosotros' },
-    { text: 'Contacto', href: '#contacto' }
+  links: NavLinksMap = {
+    index: [
+      { text: 'Nuestros servicios', href: '#servicios' },
+      { text: 'Sobre nosotros', href: '#nosotros' },
+      { text: 'Contacto', href: '#contacto' }
+    ],
+    trabajo: [
+      { text: 'Telemarketing', href: '#telemarketing' },
+      { text: 'Face2Face', href: '#face2face' }
+    ]
+  }
+
+  viewsWithHeroBackground = [
+    'trabajo'
   ]
 
   linksAreActive = false
   private _headroom?: Headroom
 
-  get isLandingPage (): boolean {
-    return this.$route.name === 'index'
+  get routeLinks (): NavLink[] | undefined {
+    return this.links[this.$route.name || '']
   }
 
   get isBlogEntry (): boolean {
@@ -31,7 +46,9 @@ export default class TheHeader extends Vue {
 
   mounted () {
     this._headroom = new Headroom(this.$header, {
-      tolerance: 10
+      tolerance: 10,
+      onTop: this._onHeadroomTop.bind(this),
+      onNotTop: this._onHeadroomNotTop.bind(this)
     })
     this._headroom.init()
   }
@@ -59,17 +76,35 @@ export default class TheHeader extends Vue {
       this._hideMenu()
     }
   }
+
+  private _onHeadroomTop () {
+    if (this.viewsWithHeroBackground.includes(this.$route.name || '')) {
+      const logo = require('@/static/logo-intermediate.svg')
+      if (this.$logo) this.$logo.src = logo
+    }
+  }
+
+  private _onHeadroomNotTop () {
+    if (this.viewsWithHeroBackground.includes(this.$route.name || '')) {
+      const logo = require('@/static/logo.svg')
+      if (this.$logo) this.$logo.src = logo
+    }
+  }
 }
 </script>
 
 <template lang="pug">
 header.header(ref="header"): .inner-header
   section.left-section
-    img.logo(src="~@/static/logo.svg")
-  section.right-section(v-if='isLandingPage')
+    img.logo(ref='logo' src="~@/static/logo.svg")
+  section.right-section(v-if='isBlogEntry')
+    nav.nav-links
+      nuxt-link.nav-link(to='/blog')
+        AppIcon(icon='arrowLeft') Blog
+  section.right-section(v-else-if='routeLinks')
     nav.nav-links(:class="{ active: linksAreActive }")
       a.nav-link(
-        v-for="link in links"
+        v-for="link in routeLinks"
         :href="link.href"
         @click="_onNavLinkClicked"
       ) {{ link.text }}
@@ -77,10 +112,6 @@ header.header(ref="header"): .inner-header
         path(d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z")
     svg.menu-button(viewBox="0 0 24 24" @click="_onMenuButtonClicked")
       path(d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z")
-  section.right-section(v-else-if='isBlogEntry')
-    nav.nav-links
-      nuxt-link.nav-link(to='/blog')
-        AppIcon(icon='arrowLeft') Blog
 
 </template>
 
