@@ -27,7 +27,7 @@ export default class BlogEntry extends Vue {
 
 <template lang="pug">
 main
-  section
+  section.wrapper
     section.hero-section(v-if='entry')
       h1.hero-section-title(v-if='entry.data.title')
         | {{ entry.data.title[0].text }}
@@ -52,9 +52,17 @@ main
 @import '~@/assets/theme';
 @import '~@/assets/mixins';
 
+.wrapper
+  padding-top: 4em;
+
+  +mobile()
+    padding: 1.5em;
+
 .hero-section
   text-align: center;
   color: $dark-text-primary;
+  +mobile()
+    font-size: .6em;
 
   &-title
     font-family: 'Roboto Condensed';

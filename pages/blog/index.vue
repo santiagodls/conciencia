@@ -107,6 +107,9 @@ main
 
 .hero-section
   position: relative;
+  +mobile()
+    font-size: .7em;
+    padding: 6em 2em;
 
   &::before
     content: '';
@@ -144,12 +147,19 @@ main
     font-weight: normal;
 
 .list
+  &-section
+    +mobile()
+      padding: 4em 1.5em;
+
   &-entries
     padding: 0;
     list-style: none;
 
   &-entry
     display: flex;
+    +mobile()
+      flex-direction: column;
+
     &:not(:last-child)
       margin-bottom: 6em;
 
@@ -161,15 +171,23 @@ main
     color: $app-grey;
     flex-shrink: 0;
     margin-right: 2em;
+    +mobile()
+      flex-direction: row;
 
   &-entry-day
     font-size: 8em;
     line-height: .75;
     margin-top: .05em;
+    +mobile()
+      font-size: 1.2em;
+      line-height: 1.5;
 
   &-entry-month
     font-size: 2.5em;
     line-height: .75em;
+    +mobile()
+      font-size: 1.2em;
+      line-height: 1.5;
 
   &-entry-day,
   &-entry-month,

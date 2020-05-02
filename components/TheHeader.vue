@@ -91,9 +91,8 @@ header.header(ref="header"): .inner-header
       img.logo(ref='logo' src="~@/static/logo.svg")
 
   section.right-section(v-if='isBlogEntry')
-    nav.nav-links
-      nuxt-link.nav-link(to='/blog')
-        AppIcon(icon='arrowLeft') Blog
+    nuxt-link.nav-link.go-back(to='/blog')
+      AppIcon(icon='arrowLeft') Blog
 
   section.right-section(v-else-if='routeLinks')
     nav.nav-links(:class="{ active: linksAreActive }")
@@ -160,9 +159,10 @@ header.header(ref="header"): .inner-header
   color: $dark-text-primary;
   &:active
     color: $paper-orange-500;
-  +mobile()
-    font-size: 2em;
-    margin: .5em 0;
+  &:not(.go-back)
+    +mobile()
+      font-size: 2em;
+      margin: .5em 0;
   .icon
     color: inherit;
 
