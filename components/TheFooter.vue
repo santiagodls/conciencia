@@ -4,7 +4,10 @@ import AppIcon from '@/components/AppIcon.vue'
 
 @Component({ components: { AppIcon } })
 export default class TheFooter extends Vue {
-
+  links: NavLink[] = [
+    { text: 'Trabaja con nosotros', href: '/trabajo' }
+    // { text: 'Nuestro blog', href: '/blog' }
+  ]
 }
 </script>
 
@@ -13,12 +16,15 @@ footer.footer
   .inner-footer
     .left-section
       .social
-        AppIcon(size='48' icon='twitter')
-        AppIcon(size='48' icon='youtube')
-        AppIcon(size='48' icon='facebook')
+        AppIcon(size='32' icon='twitter')
+        AppIcon(size='32' icon='youtube')
+        AppIcon(size='32' icon='facebook')
+      nav.nav-list(v-for='link in links')
+        nuxt-link.nav-link(:to='link.href') {{ link.text }}
 
     .right-section
-      img.logo(src='@/static/logo.svg')
+      nuxt-link(to='/')
+        img.logo(src='@/static/logo.svg')
 
 </template>
 
@@ -60,5 +66,20 @@ $footer-margin = 16em;
 
 .logo
   width: 12em;
+
+.social
+  display: flex;
+  +mobile()
+    justify-content: flex-end;
+
+.nav-list
+  +mobile()
+    text-align: right;
+
+.nav-link
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: $dark-text-primary;
 
 </style>

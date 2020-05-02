@@ -55,11 +55,16 @@ main
 @import '~@/assets/theme';
 @import '~@/assets/mixins';
 
-.section
-  page-section();
-
 main
   padding-top: 0;
+
+.section
+  page-section();
+  margin: 0;
+  align-items: center;
+  padding: 0 4em;
+  +mobile()
+    padding: 0 1.5em;
 
 .hero-section
   position: relative;
@@ -67,7 +72,10 @@ main
   justify-content: center;
   max-width: unset;
   background: $app-yellow;
-  padding-top: calc(var(--header-height) + 4em)
+  padding-top: calc(var(--header-height) + 4em);
+  +mobile()
+    font-size: .6em;
+    padding-top: calc(var(--header-height) + 8em);
 
   .text-wrapper
     max-width: var(--max-width);
@@ -102,19 +110,25 @@ main
     margin: -12em 0 4em 0;
     width: 20em;
     z-index: 0;
+    +mobile()
+      margin-top: -6em;
 
   p
     margin-bottom: .5em;
-
-.section
-  margin: 0;
-  align-items: center;
-  padding: 0 4em;
 
 .message
   padding: 2em;
   border-radius: 8px;
   border: 8px solid $paper-amber-500;
+
+#telemarketing,
+#face2face
+  +until-tablet()
+    flex-direction: column;
+
+  .section-image
+    +mobile()
+      width: 25em;
 
 #contacto
   justify-content: center;

@@ -3,15 +3,6 @@ import { Vue, Component, Ref } from 'vue-property-decorator'
 import Headroom from 'headroom.js'
 import AppIcon from '@/components/AppIcon.vue'
 
-type NavLink = {
-  text: string
-  href: string
-}
-
-type NavLinksMap = {
-  [key: string]: NavLink[]
-}
-
 @Component({ components: { AppIcon } })
 export default class TheHeader extends Vue {
   @Ref('header') readonly $header!: HTMLElement
@@ -81,6 +72,9 @@ export default class TheHeader extends Vue {
     if (this.viewsWithHeroBackground.includes(this.$route.name || '')) {
       const logo = require('@/static/logo-intermediate.svg')
       if (this.$logo) this.$logo.src = logo
+    } else {
+      const logo = require('@/static/logo.svg')
+      if (this.$logo) this.$logo.src = logo
     }
   }
 
@@ -96,11 +90,14 @@ export default class TheHeader extends Vue {
 <template lang="pug">
 header.header(ref="header"): .inner-header
   section.left-section
-    img.logo(ref='logo' src="~@/static/logo.svg")
+    nuxt-link(to='/')
+      img.logo(ref='logo' src="~@/static/logo.svg")
+
   section.right-section(v-if='isBlogEntry')
     nav.nav-links
       nuxt-link.nav-link(to='/blog')
         AppIcon(icon='arrowLeft') Blog
+
   section.right-section(v-else-if='routeLinks')
     nav.nav-links(:class="{ active: linksAreActive }")
       a.nav-link(
@@ -189,7 +186,7 @@ header.header(ref="header"): .inner-header
   +mobile()
     display: block;
 
-.logo
+.left-section *
   height: 100%;
 
 .headroom
