@@ -1,8 +1,9 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import TheContactForm from '@/components/TheContactForm.vue'
+import TheHiringModal from '@/components/TheHiringModal.vue'
 
-@Component({ components: { TheContactForm } })
+@Component({ components: { TheContactForm, TheHiringModal } })
 export default class Index extends Vue {}
 
 </script>
@@ -54,6 +55,8 @@ main
     picture
       source(media="(max-width: 780px)" srcset="@/static/img7-mobile.png")
       img.section-image(src="@/static/img7.png")
+
+  TheHiringModal
 
 </template>
 

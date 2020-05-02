@@ -1,20 +1,22 @@
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+import { PortalTarget } from 'portal-vue'
+import TheHeader from '@/components/TheHeader.vue'
+import TheFooter from '@/components/TheFooter.vue'
+
+@Component({ components: { TheHeader, TheFooter, PortalTarget } })
+export default class Layout extends Vue {}
+</script>
+
 <template lang="pug">
   main.main-wrapper
     TheHeader
     nuxt.main-content
     TheFooter
 
+    PortalTarget(name='modals-container')
+
 </template>
-
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import TheHeader from '@/components/TheHeader.vue'
-import TheFooter from '@/components/TheFooter.vue'
-
-@Component({ components: { TheHeader, TheFooter } })
-export default class Layout extends Vue {}
-
-</script>
 
 <style lang="stylus">
 @import '~@/assets/theme';

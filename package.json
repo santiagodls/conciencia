@@ -20,6 +20,7 @@
     "date-fns": "^2.11.0",
     "headroom.js": "^0.11.0",
     "nuxt": "^2.0.0",
+    "portal-vue": "^2.1.7",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.7.0",
     "vue-property-decorator": "^8.4.0"

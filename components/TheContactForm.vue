@@ -1,7 +1,8 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+import AppButton from '@/components/AppButton.vue'
 
-@Component
+@Component({ components: { AppButton } })
 export default class TheContactForm extends Vue {
   @Prop({ type: String, default: '¿En qué te podemos ayudar?' }) messagePlaceholder!: string
 }
@@ -16,7 +17,7 @@ form.contact-form(
   input.form-field(placeholder='Nombre' name='name')
   input.form-field(placeholder='Teléfono / email de contacto' name='contact')
   textarea.form-field(:placeholder='messagePlaceholder' name='message' rows='6')
-  input.submit-button(type='submit' value='Contactar')
+  AppButton.submit-button(type='submit' submit-value='Contactar')
 </template>
 
 <style lang="stylus" scoped>
@@ -33,12 +34,6 @@ form.contact-form(
     border-width: 5px;
 
 .submit-button
-  background: $app-yellow;
-  font-family: 'Roboto Condensed';
-  font-size: 1.5em;
-  padding: .5em 2em;
-  border: none;
-  border-radius: 2em;
   margin-top: 1em;
   float: right;
 
