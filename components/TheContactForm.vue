@@ -1,9 +1,9 @@
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class TheContactForm extends Vue {
-
+  @Prop({ type: String, default: '¿En qué te podemos ayudar?' }) messagePlaceholder!: string
 }
 </script>
 
@@ -15,7 +15,7 @@ form.contact-form(
   input.hpot(name='_gotcha')
   input.form-field(placeholder='Nombre' name='name')
   input.form-field(placeholder='Teléfono / email de contacto' name='contact')
-  textarea.form-field(placeholder='¿En qué te podemos ayudar?' name='message' rows='6')
+  textarea.form-field(:placeholder='messagePlaceholder' name='message' rows='6')
   input.submit-button(type='submit' value='Contactar')
 </template>
 
