@@ -52,13 +52,18 @@ Portal(to='modals-container')
     v-if='!hadBeenDisplayed'
   )
     .modal
-      h1.modal-title
-        span.old Trabaja
-        span &nbsp;
-        span.new Conciencia con nosotr@s desde casa
-      p.modal-message
-        | <b>Teletrabaja desde donde quieras y elije tu propio horario</b>.
-        | Te ofrecemos formar parte de <b>un proyecto social que cambia realidades</b>, dónde recibirás formación y apoyo constante.
+      main.body
+        .left-section
+          img(src='img11.svg')
+
+        .right-section
+          h1.modal-title
+            span.old Trabaja
+            span &nbsp;
+            span.new Conciencia con nosotr@s desde casa
+          p.modal-message
+            | <b>Teletrabaja desde donde quieras y elije tu propio horario</b>.
+            | Te ofrecemos formar parte de <b>un proyecto social que cambia realidades</b>, dónde recibirás formación y apoyo constante.
 
       footer.footer
         AppButton.confirm-button(
@@ -86,17 +91,22 @@ Portal(to='modals-container')
 
   width: 100vw;
   height: 100vh;
+  padding: 1em;
 
 .modal
   background: white;
   padding: 3em 3em 2.5em 3em;
-  margin: 1em;
   border-radius: 8px;
   max-width: 40em;
 
   animation: modal-entry-animation .35s ease-out .35s forwards;
-  margin-left: -10em;
+  margin: 0 0 0 -10em;
   opacity: 0;
+
+  +mobile()
+    text-align: center;
+    animation-name: modal-mobile-entry-animation;
+    margin: -10em 0 0 0;
 
   &-title
     font-family: 'Roboto Condensed';
@@ -105,12 +115,24 @@ Portal(to='modals-container')
     .old
       text-decoration: line-through;
 
-  &-message
-    margin-bottom: 1.5em;
+.body
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  +mobile()
+    flex-direction: column;
+
+.left-section img
+  width: 10em;
+  margin: -1em 2em 0 0;
+  +mobile()
+    margin: 0 0 1em 0;
 
 .confirm-button
   float: right;
   font-size: 1.2em;
+  +mobile()
+    float: none;
 
 .backdrop
   position: absolute;
@@ -127,6 +149,11 @@ Portal(to='modals-container')
 @keyframes modal-entry-animation
   to
     margin-left: 0;
+    opacity: 1;
+
+@keyframes modal-mobile-entry-animation
+  to
+    margin-top: 0;
     opacity: 1;
 
 @keyframes backdrop-entry-animation
