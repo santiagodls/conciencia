@@ -10,7 +10,7 @@ export default class Layout extends Vue {}
 
 <template lang="pug">
   main.main-wrapper
-    TheHeader
+    TheHeader(:key='$route.name')
     nuxt.main-content
     TheFooter
 

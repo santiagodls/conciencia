@@ -72,9 +72,6 @@ export default class TheHeader extends Vue {
     if (this.viewsWithHeroBackground.includes(this.$route.name || '')) {
       const logo = require('@/static/logo-intermediate.svg')
       if (this.$logo) this.$logo.src = logo
-    } else {
-      const logo = require('@/static/logo.svg')
-      if (this.$logo) this.$logo.src = logo
     }
   }
 
