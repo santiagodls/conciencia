@@ -32,6 +32,7 @@ main
         li Contrato laboral con <b>alta en la seguridad social desde el primer día</b>
         li <b>Sueldo base + incentivos</b>
         li Horario <b>de lunes a viernes, 4 horas y media al día</b>: 4 horas de captación + 30 minutos formación
+        li <b>Horario real</b>, 4 horas y media, ni una más
     img.section-image(src='@/static/img8.svg')
 
   section.section.section2.reverse#face2face
