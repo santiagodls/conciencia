@@ -13,7 +13,7 @@ main
   section.section.section1#servicios
     .section-text
       h1.section-title Trabajando por causas que importan
-      p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de campañas <b>Face-to-face, asesoramiento y formaciones especificas</b>.
+      p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de <b>campañas de fundraising, asesoramiento y formaciones especificas</b>.
     picture
       source(media="(max-width: 780px)" srcset="@/static/img1-mobile.png")
       img.section-image(src="@/static/img1.png")

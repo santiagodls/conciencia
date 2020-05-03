@@ -28,7 +28,7 @@ main
     .section-text
       h1.section-title Oferta en telemarketing
       ul.section-list
-        li Teletrabaja <b>desde donde quieras</b> y elije <b>tu propio horario</b>
+        li Teletrabaja <b>desde donde quieras</b> y elige <b>tu propio horario</b>
         li Contrato laboral con <b>alta en la seguridad social desde el primer día</b>
         li <b>Sueldo base + incentivos</b>
         li Horario <b>de lunes a viernes, 4 horas y media al día</b>: 4 horas de captación + 30 minutos formación

@@ -62,7 +62,7 @@ Portal(to='modals-container')
             span &nbsp;
             span.new Conciencia con nosotr@s desde casa
           p.modal-message
-            | <b>Teletrabaja desde donde quieras y elije tu propio horario</b>.
+            | <b>Teletrabaja desde donde quieras y elige tu propio horario</b>.
             | Te ofrecemos formar parte de <b>un proyecto social que cambia realidades</b>, dónde recibirás formación y apoyo constante.
 
       footer.footer
