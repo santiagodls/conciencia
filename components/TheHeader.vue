@@ -12,7 +12,8 @@ export default class TheHeader extends Vue {
     index: [
       { text: 'Nuestros servicios', href: '#servicios' },
       { text: 'Sobre nosotros', href: '#nosotros' },
-      { text: 'Contacto', href: '#contacto' }
+      { text: 'Contacto', href: '#contacto' },
+      { text: 'Trabajo', href: '/trabajo' }
     ],
     trabajo: [
       { text: 'Telemarketing', href: '#telemarketing' },
@@ -152,6 +153,7 @@ header.header(ref="header"): .inner-header
       display: none;
 
 .nav-link
+  text-align:right;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 600;
