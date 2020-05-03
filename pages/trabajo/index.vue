@@ -18,7 +18,7 @@ main
     img(src='@/static/wave1.svg')
 
   section.info-section
-    img.section-image(src='img10.png')
+    img.section-image(src='@/static/img10.png')
     .section-text
       p Desde CONCIENCIA tenemos un objetivo bien claro: <b>disfrutar trabajando para organizaciones con las que nos sentimos alinead@s</b>, a través de un <b>fundraising responsable y transparente</b>.
       p Te ofrecemos <b>formar parte de un proyecto social que cambia realidades</b>, dónde recibirás formación y apoyo constante.
@@ -32,14 +32,14 @@ main
         li Contrato laboral con <b>alta en la seguridad social desde el primer día</b>
         li <b>Sueldo base + incentivos</b>
         li Horario <b>de lunes a viernes, 4 horas y media al día</b>: 4 horas de captación + 30 minutos formación
-    img.section-image(src='img8.svg')
+    img.section-image(src='@/static/img8.svg')
 
   section.section.section2.reverse#face2face
     .section-text
       h1.section-title Oferta en face2face
       .message
         p Debido a la situación actual, <b>nuestra oferta</b> para trabajar en la campaña face2face <b>permanece cerrada</b> hasta que podamos salir a captar a la calle sin ningún tipo de riesgo.
-    img.section-image(src='img9.svg')
+    img.section-image(src='@/static/img9.svg')
 
   section.section.section3#contacto
     .section-text

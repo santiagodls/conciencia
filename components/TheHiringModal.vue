@@ -54,7 +54,7 @@ Portal(to='modals-container')
     .modal
       main.body
         .left-section
-          img(src='img11.svg')
+          img(src='@/static/img11.svg')
 
         .right-section
           h1.modal-title
