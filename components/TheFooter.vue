@@ -19,6 +19,12 @@ footer.footer
         AppIcon(size='32' icon='twitter')
         AppIcon(size='32' icon='youtube')
         AppIcon(size='32' icon='facebook')
+      .contact
+        AppIcon.email(
+          icon='email'
+          no-pointer
+          no-hover
+        ): span.email-text info@concienciafundraising.es
       nav.nav-list(v-for='link in links')
         nuxt-link.nav-link(:to='link.href') {{ link.text }}
 
@@ -71,6 +77,15 @@ $footer-margin = 16em;
   display: flex;
   +mobile()
     justify-content: flex-end;
+
+.contact > *
+  +mobile()
+    flex-direction: row-reverse;
+
+.email-text
+  margin: 0 0 0 .25em;
+  +mobile()
+    margin: 0 .25em 0 0;
 
 .nav-list
   +mobile()

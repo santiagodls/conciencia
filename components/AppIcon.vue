@@ -10,7 +10,9 @@ const icons: { [key: string ]: string } = {
 
   arrowLeft: 'M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z',
 
-  arrowRight: 'M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z'
+  arrowRight: 'M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z',
+
+  email: 'M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z'
 }
 
 @Component
@@ -42,9 +44,10 @@ export default class AppIcon extends Vue {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  cursor: pointer;
   color: $paper-grey-600;
-  &:hover
+  &:not([no-pointer])
+    cursor: pointer;
+  &:hover:not([no-hover])
     color: $paper-grey-800;
   &[reverse]
     flex-direction: row-reverse;
@@ -53,6 +56,6 @@ svg
   fill: currentColor;
 
 .text
-  color: inherit
+  color: inherit;
 
 </style>
