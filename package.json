@@ -15,28 +15,28 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.0",
-    "date-fns": "^2.11.0",
+    "date-fns": "^2.16.1",
     "headroom.js": "^0.11.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.14.7",
     "portal-vue": "^2.1.7",
-    "prismic-dom": "^2.1.0",
-    "prismic-javascript": "^2.7.0",
-    "vue-property-decorator": "^8.4.0"
+    "prismic-dom": "^2.2.4",
+    "prismic-javascript": "^2.7.1",
+    "vue-property-decorator": "^8.5.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.8",
     "@nuxt/typescript-runtime": "^0.3.10",
     "@nuxtjs/eslint-config-typescript": "^1.0.2",
-    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/eslint-module": "^1.2.0",
     "@types/prismic-dom": "^2.1.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "push-dir": "^0.4.1",
-    "stylus": "^0.54.7",
+    "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2"
   }
 }
