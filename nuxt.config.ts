@@ -1,7 +1,7 @@
 /* nuxt.config.js */
 
 export default {
-  mode: 'universal',
+  ssr: false,
   /*
   ** Headers of the page
   */
@@ -30,6 +30,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/splide.client'
   ],
   /*
   ** Nuxt.js dev-modules

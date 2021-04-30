@@ -9,47 +9,60 @@ export default class Index extends Vue {}
 
 <template lang="pug">
 main
-  section.section.section1#servicios
+  section.section#servicios
     .section-text
-      h1.section-title Trabajando por causas que importan
-      p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de <b>campañas de fundraising, asesoramiento y formaciones especificas</b>.
-    picture
-      source(media="(max-width: 780px)" srcset="@/static/img1-mobile.png")
-      img.section-image(src="@/static/img1.png")
+      .slide-text-wrapper
+        h1.section-title Trabajando por causas que importan
+        p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de <b>campañas de fundraising, asesoramiento y formaciones especificas</b>.
+    splide(:options="{ autoplay: true, rewind: true, speed: 750 }")
+      splide-slide
+        img(src="@/static/slides/01.jpeg")
+      splide-slide
+        img(src="@/static/slides/02.jpg")
+      splide-slide
+        img(src="@/static/slides/03.jpeg")
+      splide-slide
+        img(src="@/static/slides/04.jpg")
+      splide-slide
+        img(src="@/static/slides/05.jpg")
+      splide-slide
+        img(src="@/static/slides/06.jpg")
 
-  section.section.section2.reverse
+  section.section.reverse
     .section-text
       h1.section-title Comunicamos, concienciamos, hacemos fundraising
-      p El Fundraising es <b>ese mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Queremos que Conciencia sea el hilo conductor que lo haga posible. Por ello, <b>nos sentimos muy orgullosos de estar trabajando actualmente con estas organizaciones</b>:
+      p El Fundraising es <b>ese mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Desde Conciencia queremos ser ese hilo conductor que lo haga posible, a través de campañas de <b>Face to Face y Telemarketing</b>. También prestamos servicios de consultoría y formaciones específicas.
+      p Actualmente Concienciamos para estas organizaciones:
       img.partner-logo(src="@/static/medicosdelmundo.png")
+      img.partner-logo#greenpeace-logo(src="@/static/greenpeace.png")
     img.section-image(src="@/static/img2.svg")
 
-  section.section.section3#nosotros
+  section.section#nosotros
     .section-text
-      h1.section-title Con el mejor de los equipos
-      p <b>El valor y el corazón</b> de conciencia. Son ellos y ellas <b>quienes conciencian y conectan</b> día a día a cientos de personas con las distintas realidades y las organizaciones a las que representan.
+      h1.section-title El valor y el corazón de Conciencia
+      p Son ellos y ellas <b>quienes conciencian y conectan</b> día a día a cientos de personas con las distintas realidades y las organizaciones a las que representan.
     picture
       source(media="(max-width: 1280px)" srcset="@/static/img3-mobile.png")
       img.section-image(src="@/static/img3.png")
 
-  section.section.section4
+  section.section
     .section-column
       img.section-column-image(src="@/static/img4.svg")
-      h2.section-column-title.section-title Unidos por nuestra pasión
-      p Nuestra pasión de apoyar la labor de las ONG’s con las que nos sintamos alineados/as, a través de una captación de fondos en <b>equipo</b>, de forma <b>ética y responsable</b>.
+      h2.section-column-title.section-title Unid@s por un propósito
+      p <b>Creemos</b> en las organizaciones con las que trabajamos y <b>en las causas</b> que defienden. Por ello estamos orgullos@s de ayudarlas a llevar a cabo sus proyectos, a través de una captación de fondos <b>en equipo, ética y transparente</b>.
     .section-column
       img.section-column-image(src="@/static/img5.svg")
       h2.section-column-title.section-title Con una meta bien clara
-      p Crear un proyecto en el que las personas que formen parte de él <b>disfruten de su trabajo</b>, se sientan <b>valoradas, realizadas y acompañadas</b>.
+      p Crear un proyecto en el que las personas que formen parte de él <b>disfruten de lo que hacen</b>, se sientan <b>valoradas y acompañadas</b>.
     .section-column
       img.section-column-image(src="@/static/img6.svg")
-      h2.section-column-title.section-title Con las mejores herramientas
-      p Formados en <b>Coaching personal y sistémico, Marketing, gestión comercial y Psicología</b>. Llevamos más de 15 años captando y liderando campañas de face-to-face.
+      h2.section-column-title.section-title Disfrutando del camino
+      p Hace ya más de 15 años que nos pusimos nuestro primer chaleco. En este viaje no hemos dejado de <b>amar lo que hacemos</b>, ilusionarnos con <b>nuevos retos</b> y seguir sumando </b>aprendizajes y experiencias</b>.
 
-  section.section.section5.reverse#contacto
+  section.section.reverse#contacto
     .section-text.xl
       h1.section-title El momento de iniciar nuestra propia aventura ¿Te unes?
-      p Tanto si eres una <b>ONG</b> como si quieres <b>trabajar con nosotros</b>, contáctanos, estaremos encantados y encantadas de atenderte. ¡Conciencia con nosotros!
+      p Eres una organización, quieres trabajar con nosotr@s, o te apetece proponernos una idea? Contáctanos! estaremos encantados y encantadas de escucharte. ¡Conciencia con nosotr@s!
       TheContactForm
     picture
       source(media="(max-width: 780px)" srcset="@/static/img7-mobile.png")
@@ -63,34 +76,47 @@ main
 
 .section
   page-section();
+  &:not(:nth-child(1))
+    max-width: var(--max-width);
+    width: 100%;
 
-.section1
-  height: 42em;
-  margin: 0;
-  +tablet()
-    height: 48em;
+.section:nth-child(1)
+  height: 80vh;
+  margin: 0 0 4em 0;
+  position: relative;
+  z-index: 1;
   +mobile()
-    margin-top: 2em;
-    height: 62em;
+    padding: 3em;
+    margin-bottom: 15em;
+
+  .splide
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    overflow: hidden;
+    z-index: -1;
+
+  >>> .splide__list,
+  >>> .splide__track
+    height: 100%;
+
+  .splide img
+    width: 100%; height: 100%;
+    object-fit: cover;
+
+  .slide-text-wrapper
+    background: rgba(255, 255, 255, .5);
+    padding: 2em;
 
   .section-text
-    text-shadow: 0px 0px 4px white;
-
-  .section-image
-    position: absolute;
-    top: -2em; right: -2em;
     +tablet()
-      width: 80vw;
-      min-width: 50em;
-      top: 6em; right: -8em;
+      display: flex;
+      align-items: flex-end;
     +mobile()
-      width: 42em;
-      min-width: unset;
-      top: 10em; right: -15em;
-    +mobile-landscape()
-      top: 6em; right: -10em;
+      display: flex;
+      align-items: flex-end;
 
-.section2
+.section:nth-child(2)
   height: 45em;
   +tablet()
     height: 32em;
@@ -113,7 +139,7 @@ main
       top: -17em; right: -8em;
       left: unset;
 
-.section3
+.section:nth-child(3)
   height: 36em;
   +tablet()
     height: 40em;
@@ -130,7 +156,7 @@ main
       top: -2em; left: -4em;
       right: unset;
 
-.section4
+.section:nth-child(4)
   justify-content: space-around;
   +mobile()
     flex-direction: column;
@@ -160,7 +186,7 @@ main
       +mobile()
         font-size: 2em;
 
-.section5
+.section:nth-child(5)
   margin: 0;
   +tablet()
     margin-top: 6em;
@@ -184,8 +210,11 @@ main
   width: 6em;
   height: 6em;
   margin-top: 2em;
-  filter: grayscale(1);
   opacity: .7;
+  &#greenpeace-logo
+    width: auto;
+  +.partner-logo
+    margin-left: .5em;
   +mobile()
     width: 5em;
     height: 5em;

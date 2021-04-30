@@ -24,7 +24,7 @@ main
       p Te ofrecemos <b>formar parte de un proyecto social que cambia realidades</b>, dónde recibirás formación y apoyo constante.
       p Tu función será <b>informar y concienciar a la población</b> sobre los diferentes proyectos de Médicos del Mundo, con el objetivo de que se sumen a la causa y colaboren con la organización.
 
-  section.section.section1#telemarketing
+  section.section#telemarketing
     .section-text
       h1.section-title Oferta en telemarketing
       ul.section-list
@@ -34,14 +34,14 @@ main
         li <b>Horario real</b>, de lunes a viernes, 4 horas y media al día: <b>4 horas de captación + 30 minutos formación</b>
     img.section-image(src='@/static/img8.svg')
 
-  section.section.section2.reverse#face2face
+  section.section.reverse#face2face
     .section-text
       h1.section-title Oferta en face2face
       .message
         p Debido a la situación actual, <b>nuestra oferta</b> para trabajar en la campaña face2face <b>permanece cerrada</b> hasta que podamos salir a captar a la calle sin ningún tipo de riesgo.
     img.section-image(src='@/static/img9.svg')
 
-  section.section.section3#contacto
+  section.section#contacto
     .section-text
       h1.section-title ¿Te interesa alguna de nuestras ofertas?
       p Contáctanos, estaremos encantados y encantadas de leer tu solicitud.
@@ -63,6 +63,7 @@ main
   margin: 0;
   align-items: center;
   padding: 0 4em;
+  max-width: var(--max-width);
   +mobile()
     padding: 0 1.5em;
 

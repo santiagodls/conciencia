@@ -25,7 +25,7 @@ export default class Layout extends Vue {}
 
 :root
   --max-width: 80em;
-  --header-height: 6em;
+  --header-height: 5em;
   +tablet()
     --header-height: 5em;
   +mobile()
@@ -63,14 +63,12 @@ body
     flex-direction: column;
     align-items: center;
 
-  &-content
     width: 100%;
     min-height: 100%;
     padding-top: var(--header-height);
     overflow-x: hidden;
     > *
-      padding: 6em 4em;
       width: 100%;
-      max-width: var(--max-width);
+      padding: 6em 4em;
 
 </style>
