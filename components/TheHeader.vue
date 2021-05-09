@@ -12,12 +12,7 @@ export default class TheHeader extends Vue {
     index: [
       { text: 'Nuestros servicios', href: '#servicios' },
       { text: 'Sobre nosotros', href: '#nosotros' },
-      { text: 'Contacto', href: '#contacto' },
-      { text: 'Trabajo', href: '/trabajo' }
-    ],
-    trabajo: [
-      { text: 'Telemarketing', href: '#telemarketing' },
-      { text: 'Face2Face', href: '#face2face' }
+      { text: 'Contacto', href: '#contacto' }
     ]
   }
 

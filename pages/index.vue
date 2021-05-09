@@ -1,8 +1,11 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { Hooper, Slide } from 'hooper'
 import TheContactForm from '@/components/TheContactForm.vue'
 
-@Component({ components: { TheContactForm } })
+import 'hooper/dist/hooper.css'
+
+@Component({ components: { TheContactForm, Hooper, Slide } })
 export default class Index extends Vue {}
 
 </script>
@@ -13,25 +16,47 @@ main
     .section-text
       .slide-text-wrapper
         h1.section-title Trabajando por causas que importan
-        p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de <b>campañas de fundraising, asesoramiento y formaciones especificas</b>.
-    splide(:options="{ autoplay: true, rewind: true, speed: 750 }")
-      splide-slide
-        img(src="@/static/slides/01.jpeg")
-      splide-slide
-        img(src="@/static/slides/02.jpg")
-      splide-slide
-        img(src="@/static/slides/03.jpeg")
-      splide-slide
-        img(src="@/static/slides/04.jpg")
-      splide-slide
-        img(src="@/static/slides/05.jpg")
-      splide-slide
-        img(src="@/static/slides/06.jpg")
+        p Colaboramos con <b>ONGs</b> y <b>Organizaciones de carácter social</b> para que alcancen <b>sus objetivos</b> a través de <b>campañas de fundraising, asesoramiento y formaciones específicas</b>.
+    hooper(
+      :autoPlay="true"
+      :centerMode="true"
+      :wheelControl="false"
+      :playSpeed="3750"
+      :transition="750"
+    )
+      slide
+        picture
+          source(media="(max-width: 640px)" srcset="@/static/slides/01@mobile.jpg")
+          source(media="(min-width: 1290px)" srcset="@/static/slides/01@desktop.jpg")
+          img(src="@/static/slides/01.jpg")
+      slide
+        picture
+          source(media="(max-width: 640px)" srcset="@/static/slides/02@mobile.jpg")
+          source(media="(min-width: 1290px)" srcset="@/static/slides/02@desktop.jpg")
+          img(src="@/static/slides/02.jpg")
+      slide
+        picture
+          source(media="(max-width: 640px)" srcset="@/static/slides/03@mobile.jpg")
+          source(media="(min-width: 1290px)" srcset="@/static/slides/03@desktop.jpg")
+          img(src="@/static/slides/03.jpg")
+      slide
+        picture
+          source(media="(max-width: 640px)" srcset="@/static/slides/04@mobile.jpg")
+          source(media="(min-width: 1290px)" srcset="@/static/slides/04@desktop.jpg")
+          img(src="@/static/slides/04.jpg")
+      slide
+        picture
+          source(media="(max-width: 640px)" srcset="@/static/slides/05@mobile.jpg")
+          img(src="@/static/slides/05.jpg")
+      slide
+        picture
+          source(media="(max-width: 640px)" srcset="@/static/slides/06@mobile.jpg")
+          img(src="@/static/slides/06.jpg")
 
   section.section.reverse
     .section-text
       h1.section-title Comunicamos, concienciamos, hacemos fundraising
-      p El Fundraising es <b>ese mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Desde Conciencia queremos ser ese hilo conductor que lo haga posible, a través de campañas de <b>Face to Face y Telemarketing</b>. También prestamos servicios de consultoría y formaciones específicas.
+      p El Fundraising es ese <b>mágico circuito</b> que permite <b>conectar a Donantes, ONGs y Beneficiarios/as</b>. Desde Conciencia queremos ser ese hilo conductor que lo haga posible a través de campañas de <b>Face to Face y Telemarketing</b>.
       p Actualmente Concienciamos para estas organizaciones:
       img.partner-logo(src="@/static/medicosdelmundo.png")
       img.partner-logo#greenpeace-logo(src="@/static/greenpeace.png")
@@ -42,7 +67,7 @@ main
       h1.section-title El valor y el corazón de Conciencia
       p Son ellos y ellas <b>quienes conciencian y conectan</b> día a día a cientos de personas con las distintas realidades y las organizaciones a las que representan.
     picture
-      source(media="(max-width: 1280px)" srcset="@/static/img3-mobile.png")
+      source(media="(max-width: 1280px)" srcset="@/static/img3@mobile.png")
       img.section-image(src="@/static/img3.png")
 
   section.section
@@ -64,9 +89,7 @@ main
       h1.section-title El momento de iniciar nuestra propia aventura ¿Te unes?
       p Eres una organización, quieres trabajar con nosotr@s, o te apetece proponernos una idea? Contáctanos! estaremos encantados y encantadas de escucharte. ¡Conciencia con nosotr@s!
       TheContactForm
-    picture
-      source(media="(max-width: 780px)" srcset="@/static/img7-mobile.png")
-      img.section-image(src="@/static/img7.png")
+    img.section-image(src="@/static/img7.png")
 
 </template>
 
@@ -89,18 +112,14 @@ main
     padding: 3em;
     margin-bottom: 15em;
 
-  .splide
+  .hooper
     width: 100%; height: 100%;
     position: absolute;
     top: 0; left: 0;
     overflow: hidden;
     z-index: -1;
 
-  >>> .splide__list,
-  >>> .splide__track
-    height: 100%;
-
-  .splide img
+  .hooper img
     width: 100%; height: 100%;
     object-fit: cover;
 
@@ -191,11 +210,11 @@ main
   +tablet()
     margin-top: 6em;
   +mobile()
-    margin-top: 18em;
+    margin-top: 24em;
 
   .section-image
     position: absolute;
-    top: 8em; left: 2em;
+    top: 8em; left: 0;
     +tablet()
       max-width: 28em;
       left: -4em;
@@ -203,18 +222,19 @@ main
       display: none;
     +mobile()
       max-width: 28em;
-      top: -19em; left: 50%;
+      top: -24em; left: 50%;
       transform: translateX(-50%);
 
 .partner-logo
   width: 6em;
   height: 6em;
   margin-top: 2em;
-  opacity: .7;
   &#greenpeace-logo
     width: auto;
   +.partner-logo
-    margin-left: .5em;
+    margin-left: 2em;
+    +mobile()
+      margin-left: 1em;
   +mobile()
     width: 5em;
     height: 5em;

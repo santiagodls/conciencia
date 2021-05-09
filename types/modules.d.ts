@@ -3,4 +3,4 @@ declare module '*.vue' {
   export default Vue
 }
 
-declare module '@splidejs/vue-splide'
+declare module 'hooper'
