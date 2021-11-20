@@ -60,6 +60,7 @@ main
       p Actualmente Concienciamos para estas organizaciones:
       img.partner-logo(src="@/static/medicosdelmundo.png")
       img.partner-logo#greenpeace-logo(src="@/static/greenpeace.png")
+      img.partner-logo#ccc-logo(src="@/static/ccc.png")
     img.section-image(src="@/static/img2.svg")
 
   section.section#nosotros
@@ -229,7 +230,8 @@ main
   width: 6em;
   height: 6em;
   margin-top: 2em;
-  &#greenpeace-logo
+  &#greenpeace-logo,
+  &#ccc-logo
     width: auto;
   +.partner-logo
     margin-left: 2em;
@@ -238,5 +240,8 @@ main
   +mobile()
     width: 5em;
     height: 5em;
+  @media (max-width: 495px)
+    width: 15vw;
+    height: 15vw;
 
 </style>
