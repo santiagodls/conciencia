@@ -5,7 +5,7 @@ import AppIcon from '@/components/AppIcon.vue'
 @Component({ components: { AppIcon } })
 export default class TheFooter extends Vue {
   links: NavLink[] = [
-    { text: 'Trabaja con nosotros', href: '/trabajo' }
+    // { text: 'Trabaja con nosotros', href: '/trabajo' }
     // { text: 'Nuestro blog', href: '/blog' }
   ]
 }
